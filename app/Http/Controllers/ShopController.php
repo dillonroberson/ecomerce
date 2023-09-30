@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
 use App\Tag;
+use Illuminate\Support\Facades\DB;
+use Spatie\Searchable\Search;
+use Spatie\Searchable\ModelSearchAspect;
 
 class ShopController extends Controller
 {
@@ -58,7 +61,10 @@ class ShopController extends Controller
 
     public function search($query) {
         if(strlen($query) < 3) return back()->with('error', 'minimum query length is 3');
-        $products = Product::search($query)->paginate(10);
+        // $products = Product::search($query)->get();
+        $products = DB::table('products')
+                ->where('name', 'like', $query . '%')
+                ->paginate(10);
         return view('search')->with(['products' => $products, 'query' => $query]);
     }
     

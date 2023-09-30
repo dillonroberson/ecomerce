@@ -3,8 +3,8 @@
 @section('content')
 
 <div class="container">
-    <h2 class="lead" style="margin:1em; margin-left:0;">Showing {{ $products->count() }} results for {{ $query }} out of {{ $products->total() }}</h2>
-    @if ($products->total() == 0)
+    <h2 class="lead" style="margin:1em; margin-left:0;">Showing {{ $products->count() }} results for {{ $query }} out of {{ $products->count() }}</h2>
+    @if ($products->count() == 0)
         <div class="alert alert-primary">
             No products found for your search
         </div>

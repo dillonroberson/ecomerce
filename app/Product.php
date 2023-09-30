@@ -14,8 +14,6 @@ class Product extends Model
         // column with priorities
         'columns' => [
             'products.name' => 6,
-            'products.details' => 3,
-            'products.description' => 2,
         ],
     ];
 
