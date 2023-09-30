@@ -97,7 +97,7 @@ class MenuItemsTableSeederCustom extends Seeder
                 'icon_class' => 'voyager-bag',
                 'color'      => null,
                 'parent_id'  => null,
-                'order'      => 15,
+                'order'      => 5,
             ])->save();
         }
 
@@ -129,25 +129,10 @@ class MenuItemsTableSeederCustom extends Seeder
                 'icon_class' => 'voyager-wand',
                 'color'      => null,
                 'parent_id'  => null,
-                'order'      => 17,
+                'order'      => 6,
             ])->save();
         }
 
-        $menuItem = MenuItem::firstOrNew([
-            'menu_id' => $menu->id,
-            'title'   => 'Tags',
-            'url'     => '',
-            'route'   => 'voyager.tags.index',
-        ]);
-        if (!$menuItem->exists) {
-            $menuItem->fill([
-                'target'     => '_self',
-                'icon_class' => 'voyager-tag',
-                'color'      => null,
-                'parent_id'  => null,
-                'order'      => 18,
-            ])->save();
-        }
 
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
@@ -161,26 +146,9 @@ class MenuItemsTableSeederCustom extends Seeder
                 'icon_class' => 'voyager-documentation',
                 'color'      => null,
                 'parent_id'  => null,
-                'order'      => 19,
+                'order'      => 7,
             ])->save();
         }
-
-        $menuItem = MenuItem::firstOrNew([
-            'menu_id' => $menu->id,
-            'title'   => 'Country Visits',
-            'url'     => '',
-            'route'   => 'voyager.visits',
-        ]);
-        if (!$menuItem->exists) {
-            $menuItem->fill([
-                'target'     => '_self',
-                'icon_class' => 'voyager-pie-chart',
-                'color'      => null,
-                'parent_id'  => null,
-                'order'      => 20,
-            ])->save();
-        }
-
     }
 
 }
